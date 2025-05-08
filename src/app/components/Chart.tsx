@@ -8,17 +8,11 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
-type ApiResponseItem = {
-  city: string
-  date: string
-  sunrise: string
-  sunset: string
-  golden_hour: string
-}
+import { ApiResponseItem } from '../types/SearchFormTypes'
 
 // Convert Datetime to 24h format for chart
 function parseTimeToFloat(timeStr: string) {
-  // extrai "HH:mm" de "2025-05-07 06:34:38 UTC"
+  // extract "HH:mm" from "2025-05-07 06:34:38 UTC"
   const timePart = timeStr.split(' ')[1]?.slice(0, 5)
   if (!timePart) return 0
   const [h, m] = timePart.split(':').map(Number)
@@ -35,7 +29,7 @@ export default function ChartAndTable({ data }: { data: ApiResponseItem[] }) {
 
   return (
     <div className="space-y-8 text-white">
-      {/* GRÁFICO */}
+      {/* CHART */}
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={parsedChartData}>
@@ -49,7 +43,7 @@ export default function ChartAndTable({ data }: { data: ApiResponseItem[] }) {
         </ResponsiveContainer>
       </div>
 
-      {/* TABELA */}
+      {/* TABLE */}
       <div className="overflow-x-auto">
         <table className="table-auto w-full text-white border border-white">
           <thead>

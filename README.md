@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sunrise Sunset Frontend
+Frontend for Sunrise Sunset, a Jumpseller code challenge, you can access Backend by [clicking here](https://github.com/dfop02/sunrise-sunset-backend).
+
+## Dependences
+- Node 23+
+- [Sunrise Sunset Backend](https://github.com/dfop02/sunrise-sunset-backend).
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependences
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:4001](http://localhost:4001) with your browser to see the result.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+Project is very simple, I'm using only native resources from React, expect by [recharts](https://github.com/recharts/recharts). There is only one page that contains all data for this challenge, a form to fill location, start date and end date.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All fields must be filled or will trigger "Missing params" error, other errors will be handle by the same way, showing in Red above the form.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Successful searches will show the Chart for all days searched and a table that contains relevant data from backend, including sunrise hour, sunset hour and golden hour.

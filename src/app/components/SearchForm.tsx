@@ -1,12 +1,11 @@
 'use client'
 import { useState } from 'react'
 import Chart from './Chart'
-
-type DataItem = { label: string; value: number };
+import { ApiResponseItem } from '../types/SearchFormTypes'
 
 export default function SearchForm(){
   const [loading, setLoading] = useState(false)
-  const [result, setResult] = useState<DataItem[] | null>(null)
+  const [result, setResult] = useState<ApiResponseItem[] | null>(null)
   const [location, setLocation] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
