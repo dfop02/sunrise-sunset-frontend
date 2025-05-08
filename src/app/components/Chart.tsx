@@ -16,12 +16,13 @@ type ApiResponseItem = {
   golden_hour: string
 }
 
+// Convert Datetime to 24h format for chart
 function parseTimeToFloat(timeStr: string) {
   // extrai "HH:mm" de "2025-05-07 06:34:38 UTC"
-  const timePart = timeStr.split(' ')[1]?.slice(0, 5) // "06:34"
+  const timePart = timeStr.split(' ')[1]?.slice(0, 5)
   if (!timePart) return 0
   const [h, m] = timePart.split(':').map(Number)
-  return (h + m / 60).toFixed(2) // Ex: 6 + 34/60 = 6.566
+  return (h + m / 60).toFixed(2)
 }
 
 export default function ChartAndTable({ data }: { data: ApiResponseItem[] }) {

@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "jest": "next jest"
+    "jest": "jest"
   },
   "dependencies": {
     "next": "15.3.2",
