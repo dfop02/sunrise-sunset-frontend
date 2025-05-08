@@ -12,6 +12,7 @@ export default function SearchForm(){
   const [error, setError] = useState<string | null>(null)
 
   const defaultInputStyle = "border border-gray-300 rounded px-3 py-2 w-44";
+  const backendApiKey = process.env.NEXT_PUBLIC_BACKEND_API_KEY
 
 	const handleSearch = async () => {
     setLoading(true);
@@ -19,7 +20,13 @@ export default function SearchForm(){
 
     try {
       const params = new URLSearchParams({city: location, start_date: startDate, end_date: endDate})
-      const response = await fetch(`http://localhost:3000/v1/sun_events?${params.toString()}`)
+      const response = await fetch(`http://localhost:3000/v1/sun_events?${params.toString()}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'BACKEND_API_KEY': backendApiKey || ''
+        }
+      });
       const data = await response.json();
 
       if (data?.error) {
