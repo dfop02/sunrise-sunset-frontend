@@ -50,6 +50,11 @@ describe('SearchForm', () => {
 
     expect(global.fetch).toHaveBeenCalledWith(
       expect.stringContaining('city=Lisbon'),
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          BACKEND_API_KEY: expect.any(String),
+        })
+      })
     )
   })
 
