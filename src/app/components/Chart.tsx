@@ -11,7 +11,8 @@ import {
 import { ApiResponseItem } from '../types/SearchFormTypes'
 
 // Convert Datetime to 24h format for chart
-function parseTimeToFloat(timeStr: string) {
+function parseTimeToFloat(timeStr: string | null) {
+  if (timeStr === null) return;
   // extract "HH:mm" from "2025-05-07 06:34:38 UTC"
   const timePart = timeStr.split(' ')[1]?.slice(0, 5)
   if (!timePart) return 0
